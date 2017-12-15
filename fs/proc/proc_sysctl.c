@@ -990,7 +990,7 @@ static int sysctl_follow_link(struct ctl_table_header **phead,
 	spin_lock(&sysctl_lock);
 	root = (*pentry)->data;
 	set = lookup_header_set(root, namespaces);
-	dir = ctl_table_xlate_dir(set, (*phead)->parent);
+	dir = xlate_dir(set, (*phead)->parent);
 	if (IS_ERR(dir))
 		ret = PTR_ERR(dir);
 	else {
